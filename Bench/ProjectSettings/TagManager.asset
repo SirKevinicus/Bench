@@ -15,11 +15,11 @@ TagManager:
   - 
   - Player
   - Collision
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Vault
+  - Ledge
+  - Wallrun
+  - Ladder
+  - Bench
   - 
   - 
   - 

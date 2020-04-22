@@ -6,7 +6,7 @@ public class CameraManager : MonoBehaviour
 {
     public GameObject FirstPersonCam;
     public GameObject ThirdPersonCam;
-    public PlayerController player;
+    public Player player;
 
     public int camMode;
     public bool lockCursor;

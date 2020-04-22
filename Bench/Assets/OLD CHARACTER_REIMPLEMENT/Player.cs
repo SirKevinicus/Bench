@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class Player : MonoBehaviour
 {
     // REFS
     Animator animator;
@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
     public GameObject groundCheck;
     public LayerMask groundMask;
     public float groundDistance = 0.1f; // radius of the CheckSphere method
+
+    public Vector2 inputDir;
 
     // JUMP
     float velocityY;
@@ -52,7 +54,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Vector2 input = new Vector2 (Input.GetAxisRaw ("Horizontal"), Input.GetAxisRaw ("Vertical"));
-        Vector2 inputDir = input.normalized;
+        inputDir = input.normalized;
 
         isGrounded = Physics.CheckSphere(groundCheck.transform.position, groundDistance, groundMask);
 
@@ -87,6 +89,7 @@ public class PlayerController : MonoBehaviour
         float targetSpeed = ((running)? runSpeed : walkSpeed) * inputDir.magnitude;
         // the ref keyword means this variable won't be updated outside of the SmoothDamp function
         currentSpeed = Mathf.SmoothDamp(currentSpeed, targetSpeed, ref speedSmoothVelocity, GetModifiedSmoothTime(speedSmoothTime));
+        print("SPEED: " + currentSpeed);
 
         Vector3 move = transform.right * inputDir.x + transform.forward * inputDir.y;
         controller.Move(move * currentSpeed * Time.deltaTime);
