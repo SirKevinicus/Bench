@@ -1,20 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Item : MonoBehaviour
+public abstract class Item : MonoBehaviour
 {
     public string message;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public abstract void InteractAction();
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

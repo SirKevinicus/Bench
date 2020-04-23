@@ -4,16 +4,12 @@ using UnityEngine;
 
 public class Bench : Item
 {
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        message = "Sit.";
+    void Awake() {
+        message = "SIT.";
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void InteractAction()
     {
-        
+        print("INTERACT");
     }
 }

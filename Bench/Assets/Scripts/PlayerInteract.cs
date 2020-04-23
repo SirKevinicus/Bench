@@ -11,17 +11,16 @@ public class PlayerInteract : MonoBehaviour
     private LayerMask layerMask;
 
     [SerializeField]
-    [Tooltip("Radius when the tooltip will appear")]
-    private float interactRadius = 5f;
+    [Tooltip("Radius when the interact button will appear")]
+    private float interactRadius = 0.8f;
 
     [SerializeField]
-    private Text tooltipText;
+    private InteractMessageManager imm;
     
     private Item itemBeingInteracted;
 
     void Start()
     {
-        tooltipText.enabled = false;
     }
 
     void Update()
@@ -30,19 +29,23 @@ public class PlayerInteract : MonoBehaviour
 
         if(itemBeingInteracted != null)
         {
-            tooltipText.enabled = true;
-            tooltipText.text = itemBeingInteracted.message;
+            imm.ShowMessage();
+
+            if(Input.GetKeyDown(KeyCode.E))
+            {
+                itemBeingInteracted.InteractAction();
+            }
         }
         else
         {
-            tooltipText.enabled = false;
+            imm.HideMessage();
         }
     }
 
     private void SelectInteractFromRay()
     {
         Ray ray = camera.ViewportPointToRay(Vector3.one / 2f); // 0.5,0.5,0.5
-        Debug.DrawRay(ray.origin, ray.direction * 2f, Color.red);
+        Debug.DrawRay(ray.origin, ray.direction * interactRadius, Color.red);
 
         RaycastHit hitInfo;
 
@@ -57,7 +60,7 @@ public class PlayerInteract : MonoBehaviour
             else if (hitItem != null && hitItem != itemBeingInteracted)
             {
                 itemBeingInteracted = hitItem;
-                print("WHADDUP!");
+                imm.SetMessage(itemBeingInteracted);
             }
         }
         else
@@ -65,5 +68,4 @@ public class PlayerInteract : MonoBehaviour
             itemBeingInteracted = null;
         }
     }
-
 }
