@@ -14,13 +14,13 @@ public class PlayerInteract : MonoBehaviour
     [Tooltip("Radius when the interact button will appear")]
     private float interactRadius = 0.8f;
 
-    [SerializeField]
     private InteractMessageManager imm;
     
     private Item itemBeingInteracted;
 
-    void Start()
+    void Awake()
     {
+        imm = GameObject.Find("ItemManager").GetComponent<InteractMessageManager>();
     }
 
     void Update()

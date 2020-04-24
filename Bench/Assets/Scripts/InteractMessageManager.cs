@@ -9,6 +9,11 @@ public class InteractMessageManager : MonoBehaviour
     public GameObject interactPopup;
     public Camera camera;
 
+    void Start()
+    {
+        interactPopup.SetActive(false);
+    }
+
     /** Done once, when there is a new item **/
     public void SetMessage(Item i)
     {
