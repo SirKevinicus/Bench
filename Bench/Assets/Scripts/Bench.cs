@@ -8,6 +8,7 @@ public class Bench : Item
 
     void Awake() {
         message = "SIT.";
+        posOffset = new Vector3(0.0f, 1.8f, 0.0f);
         gameObject.layer = LayerMask.NameToLayer("Bench");
         level = GameObject.Find("LevelChanger").GetComponent<LevelChanger>();
     }
@@ -16,7 +17,5 @@ public class Bench : Item
     {
         print("INTERACT");
         level.FadeToNextLevel();
-        FindObjectOfType<AudioManager>().Stop("Peaceful");
-        FindObjectOfType<AudioManager>().Play("DarkAmbient");
     }
 }

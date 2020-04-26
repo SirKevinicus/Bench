@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LVL2_ROOM.unity
     guid: 6598a59b6d478264280af50ba0b46af8
+  - enabled: 1
+    path: Assets/Scenes/LVL3_HIGHPLACE.unity
+    guid: 879cfff17bf3e9543bf468b3dee3bbb7
   m_configObjects: {}

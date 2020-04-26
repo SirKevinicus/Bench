@@ -26,12 +26,9 @@ public class AudioManager : MonoBehaviour
                 s.source.volume = s.volume;
                 s.source.pitch = s.pitch;
                 s.source.loop = s.loop;
+                s.source.playOnAwake = false;
             }
         }
-    }
-
-    private void Start() {
-        Play("Peaceful");
     }
 
     public void Play (string name)

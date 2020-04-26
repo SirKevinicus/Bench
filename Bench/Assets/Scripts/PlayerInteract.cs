@@ -57,7 +57,7 @@ public class PlayerInteract : MonoBehaviour
             {
                 itemBeingInteracted = null;
             }
-            else if (hitItem != null && hitItem != itemBeingInteracted)
+            else if (hitItem != null && hitItem != itemBeingInteracted && hitItem.spent == false)
             {
                 itemBeingInteracted = hitItem;
                 imm.SetMessage(itemBeingInteracted);

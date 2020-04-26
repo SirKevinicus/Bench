@@ -18,8 +18,11 @@ public class InteractMessageManager : MonoBehaviour
     public void SetMessage(Item i)
     {
         string message = i.message.ToUpper();
-        Vector3 pos = i.transform.position;
-        interactPopup.transform.position = new Vector3(pos.x, pos.y + 1.8f, pos.z);
+        Vector3 pos = i.transform.position + i.posOffset;
+        print(message);
+
+        messageText.text = message;
+        interactPopup.transform.position = pos;
         interactPopup.SetActive(true);
     }
 

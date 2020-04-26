@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 public class LevelChanger : MonoBehaviour
 {
     static LevelChanger instance;
+    static LevelConductor conductor;
     public Animator animator;
     private int levelToLoad;
 
@@ -16,6 +18,7 @@ public class LevelChanger : MonoBehaviour
         else
         {
             instance = this;
+            conductor = gameObject.GetComponent<LevelConductor>();
             DontDestroyOnLoad(gameObject);
         }
     }
@@ -28,6 +31,7 @@ public class LevelChanger : MonoBehaviour
 
     public void FadeToNextLevel ()
     {
+        conductor.NextLevel();
         FadeToLevel(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
