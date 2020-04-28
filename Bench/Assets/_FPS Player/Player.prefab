@@ -243,7 +243,7 @@ Transform:
   m_GameObject: {fileID: 7085721664118310506}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.387, y: 0.875, z: 0.906}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1.5614}
   m_Children:
   - {fileID: 1908399307047149081}
   m_Father: {fileID: 0}
@@ -294,13 +294,13 @@ MonoBehaviour:
   status: 0
   vaultLayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 1024
   ledgeLayer:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 2048
   ladderLayer:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 8192
   wallrunLayer:
     serializedVersion: 2
     m_Bits: 4096
@@ -364,4 +364,3 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 16384
   interactRadius: 4
-  imm: {fileID: 0}

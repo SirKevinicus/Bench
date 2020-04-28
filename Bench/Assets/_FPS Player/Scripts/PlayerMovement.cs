@@ -36,7 +36,7 @@ public class PlayerMovement : InterpolatedTransform
         base.OnEnable();
     }
 
-    private void Start()
+    private void Awake()
     {
         // Saving component references to improve performance.
         controller = GetComponent<CharacterController>();

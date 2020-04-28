@@ -336,7 +336,6 @@ public class PlayerController : MonoBehaviour
 
         if (playerInput.Jump())
         {
-            print("OPTION 1");
             movement.Jump((-ladderNormal + Vector3.up * 2f).normalized, 1f);
             playerInput.ResetJump();
             ChangeStatus(Status.walking);
@@ -344,7 +343,6 @@ public class PlayerController : MonoBehaviour
 
         if (!hasObjectInfront(0.05f, ladderLayer) || goToGround)
         {
-            print("OPTION 2");
             ChangeStatus(Status.walking);
             Vector3 pushUp = ladderNormal;
             pushUp.y = 0.25f;
@@ -352,10 +350,7 @@ public class PlayerController : MonoBehaviour
             movement.ForceMove(pushUp, movement.walkSpeed, 0.25f, true);
         }
         else
-        {
-            print("OPTION 3");
             movement.Move(move, 1f, 0f);
-        }
     }
 
     void CheckLadderClimbing()
@@ -368,11 +363,7 @@ public class PlayerController : MonoBehaviour
 
         if (Physics.Raycast(transform.position, transform.forward, out var hit, radius + 0.125f, ladderLayer) && right && left)
         {
-            // checks if player hit "forward" direction of ladder (denoted by z-axis / blue)
-            // make sure your ladder "faces" the blue axis. If it doesn't, either fix it in the 3D editor or nest it in an empty game object
-            // if you want ladder to be climable from only one side, uncomment this
-            
-            //if (hit.normal != hit.transform.forward) return;
+            if (hit.normal != hit.transform.forward) return;
 
             ladderNormal = -hit.normal;
             if (hasObjectInfront(0.05f, ladderLayer) && playerInput.input.y > 0.02f)
