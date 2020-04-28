@@ -5,9 +5,11 @@ using System.Collections.Generic;
 public class LevelChanger : MonoBehaviour
 {
     static LevelChanger instance;
-    static LevelConductor conductor;
     public Animator animator;
     private int levelToLoad;
+
+    public LevelScript[] levelScripts;
+    public int currentLevel;
 
     void Awake()
     {
@@ -18,7 +20,10 @@ public class LevelChanger : MonoBehaviour
         else
         {
             instance = this;
-            conductor = gameObject.GetComponent<LevelConductor>();
+            levelScripts = gameObject.GetComponents<LevelScript>();
+            foreach (LevelScript lvl in levelScripts){ lvl.enabled = false;}
+            currentLevel = 0;
+            levelScripts[0].enabled = true;
             DontDestroyOnLoad(gameObject);
         }
     }
@@ -31,7 +36,14 @@ public class LevelChanger : MonoBehaviour
 
     public void FadeToNextLevel ()
     {
-        conductor.NextLevel();
+        levelScripts[currentLevel].enabled = false;
+        if (currentLevel < levelScripts.Length - 1)
+        {
+            currentLevel++;
+            levelScripts[currentLevel].enabled = true;
+            print("STARTING LEVEL " + currentLevel);
+        }
+
         FadeToLevel(SceneManager.GetActiveScene().buildIndex + 1);
     }
 

@@ -7,7 +7,6 @@ public class Level0 : LevelScript
     // Start is called before the first frame update
     void Start()
     {
-        print("LEVEL 0 CALLED");
         FindObjectOfType<AudioManager>().Play("Peaceful");
     }
 

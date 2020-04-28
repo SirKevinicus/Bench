@@ -224,9 +224,9 @@ GameObject:
   - component: {fileID: 7085721664118310501}
   - component: {fileID: 6526632517528651535}
   - component: {fileID: 6526632517528651534}
-  - component: {fileID: 1149800568}
   - component: {fileID: 7707081060816314902}
   - component: {fileID: 285343231}
+  - component: {fileID: 1101982291}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -308,33 +308,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   crouchHeight: 1
---- !u!114 &1149800568
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7085721664118310506}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f030344419af3204dbbe544722643965, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_lastPositions: []
-  m_newTransformIndex: 0
-  walkSpeed: 4
-  runSpeed: 8
-  slideSpeed: 10
-  crouchSpeed: 2
-  jumpSpeed: 8
-  gravity: 20
-  antiBumpFactor: 0.75
-  moveDirection: {x: 0, y: 0, z: 0}
-  contactPoint: {x: 0, y: 0, z: 0}
-  controller: {fileID: 0}
-  playerControl: 0
-  grounded: 0
-  jump: {x: 0, y: 0, z: 0}
 --- !u!114 &7707081060816314902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -364,3 +337,30 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 16384
   interactRadius: 4
+--- !u!114 &1101982291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7085721664118310506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f030344419af3204dbbe544722643965, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_lastPositions: []
+  m_newTransformIndex: 0
+  walkSpeed: 4
+  runSpeed: 8
+  slideSpeed: 10
+  crouchSpeed: 2
+  jumpSpeed: 8
+  gravity: 20
+  antiBumpFactor: 0.75
+  moveDirection: {x: 0, y: 0, z: 0}
+  contactPoint: {x: 0, y: 0, z: 0}
+  controller: {fileID: 0}
+  playerControl: 0
+  grounded: 0
+  jump: {x: 0, y: 0, z: 0}

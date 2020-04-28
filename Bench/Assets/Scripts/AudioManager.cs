@@ -39,7 +39,7 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning("Sound: " + name + " not found.");
             return;
         }
-        s.source.Play();
+        StartCoroutine(FadeSoundIn(s, 3.0f));
     }
 
     public void Stop (string name)
@@ -66,5 +66,21 @@ public class AudioManager : MonoBehaviour
 
         s.source.Stop();
         s.source.volume = startVolume;
+    }
+
+    public static IEnumerator FadeSoundIn(Sound s, float fadeTime)
+    {
+        float finalVolume = s.source.volume;
+        s.source.volume = 0;
+        s.source.Play();
+
+        while(s.source.volume < finalVolume)
+        {
+            s.source.volume += finalVolume * Time.deltaTime / fadeTime;
+
+            yield return null;
+        }
+
+        s.source.volume = finalVolume;
     }
 }

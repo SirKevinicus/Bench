@@ -51,8 +51,8 @@ MonoBehaviour:
     pitch: 1
     loop: 1
   - name: DarkAmbient
-    clip: {fileID: 8300000, guid: d5c53b2297cfa8d43bc70d6512725279, type: 3}
+    clip: {fileID: 8300000, guid: 61d011e52f0158e498fd0b68f44b722d, type: 3}
     source: {fileID: 0}
-    volume: 1
+    volume: 0.5
     pitch: 1
     loop: 1

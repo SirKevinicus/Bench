@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LVL3_OFFICE.unity
     guid: 879cfff17bf3e9543bf468b3dee3bbb7
+  - enabled: 1
+    path: Assets/Scenes/LVL4_CLIMB.unity
+    guid: 3c24f6d356afe0846b2f15212883a068
   m_configObjects: {}
