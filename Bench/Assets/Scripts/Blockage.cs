@@ -5,6 +5,7 @@ using UnityEngine;
 public class Blockage : MonoBehaviour
 {
     public GameObject objects;
+    public GameObject slideDoor;
     // Start is called before the first frame update
     void Awake()
     {
@@ -21,7 +22,13 @@ public class Blockage : MonoBehaviour
     private void OnTriggerEnter(Collider other) {
         if(other.gameObject.name == "Player")
         {
-            objects.SetActive(true);
+            StartCoroutine(waitForDrop());
+            slideDoor.GetComponent<Animator>().SetTrigger("CloseDoor");
         }
+    }
+
+    private IEnumerator waitForDrop(){
+        yield return new WaitForSeconds(1.0f);
+        objects.SetActive(true);
     }
 }

@@ -4,7 +4,6 @@ using System.Collections.Generic;
 
 public class LevelChanger : MonoBehaviour
 {
-    static LevelChanger instance;
     public Animator animator;
     private int levelToLoad;
 
@@ -13,19 +12,16 @@ public class LevelChanger : MonoBehaviour
 
     void Awake()
     {
-        if (instance != null)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            instance = this;
-            levelScripts = gameObject.GetComponents<LevelScript>();
-            foreach (LevelScript lvl in levelScripts){ lvl.enabled = false;}
-            currentLevel = 0;
-            levelScripts[0].enabled = true;
-            DontDestroyOnLoad(gameObject);
-        }
+        levelScripts = gameObject.GetComponents<LevelScript>();
+        foreach (LevelScript lvl in levelScripts){ lvl.enabled = false;}
+        currentLevel = SceneManager.GetActiveScene().buildIndex;
+        levelScripts[currentLevel].enabled = true;
+    }
+
+    void Start()
+    {
+        print("TEST");
+        levelScripts[currentLevel].StartLevelActions();
     }
 
     public void FadeToLevel (int levelIndex)
@@ -40,16 +36,21 @@ public class LevelChanger : MonoBehaviour
         if (currentLevel < levelScripts.Length - 1)
         {
             currentLevel++;
-            levelScripts[currentLevel].enabled = true;
             print("STARTING LEVEL " + currentLevel);
+            FadeToLevel(SceneManager.GetActiveScene().buildIndex + 1);
         }
-
-        FadeToLevel(SceneManager.GetActiveScene().buildIndex + 1);
+        else
+        {
+            currentLevel = 0;
+            print("RETURNING TO MAIN MENU");
+            FadeToLevel(currentLevel);
+        }
     }
 
     public void OnFadeComplete()
     {
         SceneManager.LoadScene(levelToLoad);
+        levelScripts[currentLevel].enabled = true;
         animator.ResetTrigger("FadeOut");
         animator.SetTrigger("FadeIn");
     }

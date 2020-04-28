@@ -4,16 +4,10 @@ using UnityEngine;
 
 public class Level1 : LevelScript
 {
-    // Start is called before the first frame update
-    void Start()
+
+    public override void StartLevelActions()
     {
         StartCoroutine(ShowWalkInstruction(3.0f));
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     // Teach player how to walk

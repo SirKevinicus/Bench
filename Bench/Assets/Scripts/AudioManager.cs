@@ -5,7 +5,7 @@ using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
-    static AudioManager instance;
+    public static AudioManager instance;
     public Sound[] sounds;
 
     void Awake() {
@@ -17,6 +17,8 @@ public class AudioManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
+
+            print("MYBE?");
 
             foreach (Sound s in sounds)
             {
@@ -31,8 +33,14 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+
+    }
+
     public void Play (string name)
     {
+        print("play " + name);
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if (s == null)
         {

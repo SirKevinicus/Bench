@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelScript : MonoBehaviour
+public abstract class LevelScript : MonoBehaviour
 {
-    
+    public abstract void StartLevelActions();
 }

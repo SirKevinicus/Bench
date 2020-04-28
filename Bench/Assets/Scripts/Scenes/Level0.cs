@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class Level0 : LevelScript
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void StartLevelActions()
     {
-        FindObjectOfType<AudioManager>().Play("Peaceful");
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        AudioManager.instance.Play("Peaceful");
+        AudioManager.instance.Stop("DarkAmbient");
+        Cursor.lockState = CursorLockMode.None;
     }
 }

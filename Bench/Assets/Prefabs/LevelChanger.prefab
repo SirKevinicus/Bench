@@ -185,6 +185,8 @@ GameObject:
   - component: {fileID: 7760494670387890875}
   - component: {fileID: 1806361815858729743}
   - component: {fileID: 6002444298326361984}
+  - component: {fileID: 3234148611527788620}
+  - component: {fileID: 5937582015764738771}
   - component: {fileID: 82147307}
   m_Layer: 0
   m_Name: LevelChanger
@@ -263,6 +265,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a13610ab9f1cda4aa54e908925f4dba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3234148611527788620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6355532425062401790}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4db702540212d2459051c8cf5f0e06c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5937582015764738771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6355532425062401790}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 992a1a44cf2b5bf428ecf0e4fa1bdc4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &82147307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -276,3 +302,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 6355532425062401785}
+  levelScripts: []
+  currentLevel: 0
